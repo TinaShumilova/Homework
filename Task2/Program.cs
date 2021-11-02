@@ -64,32 +64,20 @@ Console.WriteLine("3. нарушают порядок знакочередова
 Console.WriteLine();
 
 index = 1;
-int count = 0;
-temp = ArrayA[count];
-int step = 0;
-int temp2 = ArrayA[step];
+temp = ArrayA[0];
 Console.Write($"Массив В.3 : {temp} ");
-while(index < length)
+while(index < ArrayA.Length)
 {
-    if(temp > 0)
+    if((temp > 0) && (ArrayA[index] < 0))
     {
-        if(ArrayA[index] < 0);
-        {
-            Console.Write($"{ArrayA[index]} ");
-        }
-        temp = ArrayA[count + 2];
+        Console.Write($"{ArrayA[index]} ");
+        temp = ArrayA[index];
     }
-    index = index + 2;
-    if(temp2 < 0)
+    if((temp < 0) && (ArrayA[index] > 0))
     {
-        if(ArrayA[index] < 0);
-        {
-            Console.Write($"{ArrayA[index]} ");
-        }
-        temp2 = ArrayA[step + 2];
+        Console.Write($"{ArrayA[index]} ");
+        temp = ArrayA[index];
     }
-    index = index + 2;
-    
-}
+    index++;
+}    
 Console.WriteLine();
-
