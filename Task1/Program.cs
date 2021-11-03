@@ -4,7 +4,8 @@
 1. нарушают порядок возрастания
 2. больше среднего арифметического элементов A
 3. чётные*/
-Console.WriteLine();
+
+/*Console.WriteLine();
 Console.WriteLine();
 Console.WriteLine("II. Создаём целочисленный массив A из натуральных двузначных чисел.");
 Console.WriteLine();
@@ -84,3 +85,25 @@ while(index < length)
 }
 Console.WriteLine();
 Console.WriteLine();
+*/
+
+int[] CreateArrayA(int[] Array, int min, int max)
+{
+    int length = Array.Length;
+    int index = 0;
+    while (index < length)
+    {
+        Array[index] = new Random().Next(min, max);
+        Console.Write($"{Array[index]} ");
+        index++;
+    }
+    return Array;
+}
+
+//II. Создаём целочисленный массив A из натуральных двузначных чисел.
+int length = 10;
+int[] ArrayA = new int[length]; //Массив А : 
+
+CreateArrayA(ArrayA, 10, 100);
+Console.WriteLine();
+
