@@ -5,23 +5,28 @@
 - элементы, больше 8
 - знакочередования*/
 
-Console.WriteLine();
+int[] CreateArrayA(int[] Array, int min, int max)
+{
+    int length = Array.Length;
+    int index = 0;
+    while (index < length)
+    {
+        Array[index] = new Random().Next(min, max + 1);
+        Console.Write($"{Array[index]} ");
+        index++;
+    }
+    return Array;
+}
+
 Console.WriteLine("I. Создаём числовой массив A заполненный числами из отрезка [-10, 10].");
-Console.WriteLine();
 Console.Write("Массив А : ");
 
 int length = 10;
 int[] ArrayA = new int[length];
-int index = 0;
 int minValue = -10;
 int maxValue = 10;
-while (index < length)
-{
-    ArrayA[index] = new Random().Next(minValue, maxValue);
-    Console.Write($"{ArrayA[index]} ");
-    index++;
-}
-Console.WriteLine();
+
+CreateArrayA(ArrayA, minValue, maxValue);
 
 Console.WriteLine();
 Console.WriteLine("Создаём на его основе масив B, отбрасывая те элементы, которые");
