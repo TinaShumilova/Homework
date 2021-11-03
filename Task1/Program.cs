@@ -100,6 +100,55 @@ int[] CreateArrayA(int[] Array, int min, int max)
     return Array;
 }
 
+int[] CreateArrayB1(int[] A)
+{
+    int len = A.Length;
+    int ind = 1;
+    int temp = A[0];
+    Console.Write($"Массив В.1 : {temp} ");
+    while(ind < len)
+    {
+        if(A[ind] > temp)
+        {
+            Console.Write($"{A[ind]} ");
+            temp = A[ind];
+        }
+        ind++;
+    }
+    return A;
+}
+
+double midA(int[] arrA)
+{
+    double middle = 0;
+    int leng = arrA.Length;
+    int i = 0;
+    while(i < leng)
+    {
+        middle = middle + arrA[i];
+        i++;
+    }
+    middle = middle / leng;
+    return middle;
+}
+
+int[] CreateArrayB2(int[] arA)
+{
+    int lengh = arA.Length;
+    int n = 0; 
+    Console.Write("Массив В.2 : ");
+    while(n < lengh)
+    {
+        if(arA[n] < midA(arA))
+        {
+            Console.Write($"{arA[n]} ");
+        }
+        n++;
+    }
+    Console.WriteLine();
+    return arA;
+}
+
 //II. Создаём целочисленный массив A из натуральных двузначных чисел.
 int length = 10;
 int[] ArrayA = new int[length]; //Массив А : 
@@ -107,3 +156,13 @@ int[] ArrayA = new int[length]; //Массив А :
 CreateArrayA(ArrayA, 10, 100);
 Console.WriteLine();
 
+//Создаём на его основе масив B, отбрасывая те элементы, которые
+//1. нарушают порядок возрастания,
+
+int[] ArrayB1 = CreateArrayB1(ArrayA); // Массив В.1
+Console.WriteLine();
+
+//2. больше среднего арифметического элементов A,
+
+Console.WriteLine($"Среднее арифметическое элементов массива А = {midA(ArrayA)}");
+int[] ArrayB2 = CreateArrayB2(ArrayA);
