@@ -103,19 +103,24 @@ int[] CreateArrayA(int[] Array, int min, int max)
 int[] CreateArrayB1(int[] A)
 {
     int len = A.Length;
-    int ind = 1;
-    int temp = A[0];
-    Console.Write($"Массив В.1 : {temp} ");
-    while(ind < len)
+    int[] B = new int[len];
+    int indA = 1;
+    int indB = 1;
+    B[0] = A[0];
+    int temp = B[0];
+    Console.Write($"Массив В.1 : {B[0]} ");
+    while(indA < len)
     {
-        if(A[ind] > temp)
+        if(A[indA] > temp)
         {
-            Console.Write($"{A[ind]} ");
-            temp = A[ind];
+            B[indB] = A[indA];
+            Console.Write($"{B[indB]} ");
+            temp = B[indB];
         }
-        ind++;
+        indA++;
+        indB++;
     }
-    return A;
+    return B;
 }
 
 double midA(int[] arrA)
@@ -135,21 +140,50 @@ double midA(int[] arrA)
 int[] CreateArrayB2(int[] arA)
 {
     int lengh = arA.Length;
-    int n = 0; 
+    int[] arB = new int[lengh];
+    int nA = 0; 
+    int nB = 0;
     Console.Write("Массив В.2 : ");
-    while(n < lengh)
+    while(nA < lengh)
     {
-        if(arA[n] < midA(arA))
+        if(arA[nA] < midA(arA))
         {
-            Console.Write($"{arA[n]} ");
+            arB[nB] = arA[nA];
+            Console.Write($"{arB[nB]} ");
         }
-        n++;
+        nA++;
+        nB++;
     }
     Console.WriteLine();
     return arA;
 }
 
-//II. Создаём целочисленный массив A из натуральных двузначных чисел.
+int[] CreateArrayB3(int[] array)
+{
+    int lent = array.Length;
+    int[] ArrB = new int[lent];
+    int inde = 0;
+    int index = 0;
+    Console.Write("Массив В.3 : ");
+    while(inde < lent)
+    {
+        if(array[inde]%2 == 0)
+        {
+            ArrB[index] = array[inde];
+            Console.Write($"{ArrB[index]} ");
+        }
+        inde++;
+        index++;
+    }
+    return ArrB;
+}
+
+
+Console.WriteLine();
+Console.WriteLine("II. Создаём целочисленный массив A из натуральных двузначных чисел.");
+Console.WriteLine();
+Console.Write("Массив А : ");
+
 int length = 10;
 int[] ArrayA = new int[length]; //Массив А : 
 
@@ -165,4 +199,10 @@ Console.WriteLine();
 //2. больше среднего арифметического элементов A,
 
 Console.WriteLine($"Среднее арифметическое элементов массива А = {midA(ArrayA)}");
-int[] ArrayB2 = CreateArrayB2(ArrayA);
+int[] ArrayB2 = CreateArrayB2(ArrayA); // Массив В2
+
+//3. чётные.
+
+int[] ArrayB3 = CreateArrayB3(ArrayA);
+Console.WriteLine();
+
